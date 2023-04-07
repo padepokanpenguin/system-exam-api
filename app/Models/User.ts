@@ -1,7 +1,18 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { column, beforeSave, BaseModel, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import {
+  column,
+  beforeSave,
+  BaseModel,
+  hasMany,
+  HasMany,
+  manyToMany,
+  ManyToMany,
+  belongsTo,
+  BelongsTo,
+} from '@ioc:Adonis/Lucid/Orm'
 import JwtToken from './JwtToken'
+import Class from './Class'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -10,11 +21,20 @@ export default class User extends BaseModel {
   @column()
   public kelas_id: string
 
+  @belongsTo(() => Class)
+  public class: BelongsTo<typeof Class>
+
   @column()
   public nomorInduk: string
 
   @column()
   public name: string
+
+  @manyToMany(() => Class, {
+    pivotTable: 'trainer_class',
+    pivotForeignKey: 'user_id',
+  })
+  public classes: ManyToMany<typeof Class>
 
   @column()
   public email: string
