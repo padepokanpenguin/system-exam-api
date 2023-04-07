@@ -54,9 +54,10 @@ export default class AuthController {
     }
   }
 
-  public async logout({ auth, response }: HttpContextContract) {
+  public async logout({ request, response, auth }: HttpContextContract) {
     try {
-      await auth.use('jwt').revoke()
+      const refreshToken = request.input('refresh_token')
+      await auth.use('jwt').revoke({ refreshToken })
       response.ok({ message: 'Logout Berhasil' })
     } catch (error) {
       ResponseError.handler(error, response, 'Auth Co ln:69')
