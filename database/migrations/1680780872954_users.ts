@@ -12,6 +12,7 @@ export default class extends BaseSchema {
       table.string('email').unique()
       table.string('password')
       table.enum('roles', ['trainer', 'participant'])
+      table.string('email_verification_token', 64).nullable()
       table.boolean('is_verified').defaultTo(false)
 
       /**

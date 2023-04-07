@@ -6,7 +6,7 @@
  */
 
 import type { AuthConfig } from '@ioc:Adonis/Addons/Auth'
-import Env from "@ioc:Adonis/Core/Env";
+import Env from '@ioc:Adonis/Core/Env'
 
 /*
 |--------------------------------------------------------------------------
@@ -84,7 +84,7 @@ const authConfig: AuthConfig = {
       },
     },
     jwt: {
-      driver: "jwt",
+      driver: 'jwt',
       publicKey: Env.get('JWT_PUBLIC_KEY', '').replace(/\\n/g, '\n'),
       privateKey: Env.get('JWT_PRIVATE_KEY', '').replace(/\\n/g, '\n'),
       persistJwt: false,
@@ -94,14 +94,14 @@ const authConfig: AuthConfig = {
         type: 'api',
         driver: 'database',
         table: 'jwt_tokens',
-        foreignKey: 'user_id'
+        foreignKey: 'user_id',
       },
       provider: {
-        driver: "lucid",
-        identifierKey: "id",
+        driver: 'lucid',
+        identifierKey: 'id',
         uids: [],
-        model: () => import('App/Models/User')
-      }
+        model: () => import('App/Models/User'),
+      },
     },
   },
 }
