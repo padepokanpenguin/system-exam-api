@@ -1,23 +1,23 @@
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
-import User from './User'
-import Class from './Class'
+import Exam from './Exam'
+import Question from './Question'
 
-export default class TrainerClass extends BaseModel {
+export default class ExamQuestion extends BaseModel {
   @column({ isPrimary: true })
   public id: string
 
   @column()
-  public userId: string
+  public examId: string
+
+  @belongsTo(() => Exam)
+  public exams: BelongsTo<typeof Exam>
 
   @column()
-  public classId: string
+  public questionId: string
 
-  @belongsTo(() => User)
-  public users: BelongsTo<typeof User>
-
-  @belongsTo(() => Class)
-  public classes: BelongsTo<typeof Class>
+  @belongsTo(() => Question)
+  public questions: BelongsTo<typeof Question>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
