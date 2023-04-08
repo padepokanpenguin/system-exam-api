@@ -12,7 +12,7 @@ export default class AuthController {
         schema: schema.create({
           name: schema.string({ trim: true }),
           email: schema.string({ trim: true }, [rules.email()]),
-          password: schema.string({ trim: true }),
+          password: schema.string({ trim: true }, [rules.confirmed('passwordConfirmaion')]),
           roles: schema.enum(['trainer', 'participant']),
         }),
       })
@@ -31,7 +31,7 @@ export default class AuthController {
 
       response.ok({ message: 'Berhasil Register', data })
     } catch (error) {
-      ResponseError.handler(error, response, 'Auth Co ln:8')
+      ResponseError.handler(error, response, 'Auth Co ln:34')
     }
   }
 
@@ -50,7 +50,7 @@ export default class AuthController {
 
       response.ok({ message: 'Login Berhasil', data, token })
     } catch (error) {
-      ResponseError.handler(error, response, 'Auth Co ln:47')
+      ResponseError.handler(error, response, 'Auth Co ln:53')
     }
   }
 
@@ -60,7 +60,7 @@ export default class AuthController {
       await auth.use('jwt').revoke({ refreshToken })
       response.ok({ message: 'Logout Berhasil' })
     } catch (error) {
-      ResponseError.handler(error, response, 'Auth Co ln:69')
+      ResponseError.handler(error, response, 'Auth Co ln:63')
     }
   }
 
@@ -80,7 +80,7 @@ export default class AuthController {
 
       return view.render('emails/verified')
     } catch (error) {
-      ResponseError.handler(error, response, 'Auth Co ln:68')
+      ResponseError.handler(error, response, 'Auth Co ln:83')
     }
   }
 }

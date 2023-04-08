@@ -7,10 +7,10 @@ export default class Class extends BaseModel {
   public id: string
 
   @column()
-  public className: string
+  public name: string
 
   @column()
-  public classCode: string
+  public code: string
 
   @manyToMany(() => User, {
     pivotTable: 'trainer_classes',
