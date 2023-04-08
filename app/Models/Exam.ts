@@ -14,10 +14,10 @@ export default class Exam extends BaseModel {
   public classes: BelongsTo<typeof Class>
 
   @column()
-  public participantId: string
+  public trainerId: string
 
   @belongsTo(() => User, {
-    foreignKey: 'participantId',
+    foreignKey: 'trainerId',
   })
   public participants: BelongsTo<typeof User>
 

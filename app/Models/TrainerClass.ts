@@ -8,7 +8,7 @@ export default class TrainerClass extends BaseModel {
   public id: string
 
   @column()
-  public userId: string
+  public trainerId: string
 
   @column()
   public classId: string

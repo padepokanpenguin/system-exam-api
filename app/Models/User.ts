@@ -19,7 +19,7 @@ export default class User extends BaseModel {
   public id: string
 
   @column()
-  public kelas_id: string
+  public classId: string
 
   @belongsTo(() => Class, {
     onQuery(q) {
