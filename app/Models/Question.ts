@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import QuestionBank from './QuestionBank'
 
 export default class Question extends BaseModel {
   @column({ isPrimary: true })
@@ -10,6 +11,9 @@ export default class Question extends BaseModel {
 
   @column()
   public questionBankId: string
+
+  @belongsTo(() => QuestionBank)
+  public questionBank: BelongsTo<typeof QuestionBank>
 
   @column()
   public isPublic: boolean = false

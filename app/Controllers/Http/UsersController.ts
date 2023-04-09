@@ -12,7 +12,7 @@ export default class UsersController {
 
       response.ok({ message: 'Berhasil mengambil data user', data })
     } catch (error) {
-      ResponseError.handler(error, response, 'User Co ln:19')
+      ResponseError.handler(error, response, 'User Co ln:15')
     }
   }
 
@@ -57,7 +57,7 @@ export default class UsersController {
 
       response.ok({ message: 'Berhasil mengambil data detail User', data })
     } catch (error) {
-      ResponseError.handler(error, response, 'User Co ln:25')
+      ResponseError.handler(error, response, 'User Co ln:60')
     }
   }
 
@@ -77,7 +77,7 @@ export default class UsersController {
 
       response.ok({ message: 'Berhasil memperbarui data user', data })
     } catch (error) {
-      ResponseError.handler(error, response, 'User Co ln: 40')
+      ResponseError.handler(error, response, 'User Co ln:80')
     }
   }
 
@@ -90,7 +90,7 @@ export default class UsersController {
 
       response.ok({ message: 'Berhasil menghapus data user' })
     } catch (error) {
-      ResponseError.handler(error, response, 'User Co ln:64')
+      ResponseError.handler(error, response, 'User Co ln:93')
     }
   }
 }

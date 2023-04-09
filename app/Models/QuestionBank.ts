@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, HasMany, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import Question from './Question'
 
 export default class QuestionBank extends BaseModel {
   @column({ isPrimary: true })
@@ -7,6 +8,9 @@ export default class QuestionBank extends BaseModel {
 
   @column()
   public name: string
+
+  @hasMany(() => Question)
+  public question: HasMany<typeof Question>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

@@ -37,4 +37,11 @@ Route.group(() => {
     update: 'checkRole:trainer, participant',
     destroy: 'checkRole:trainer, participant',
   })
+  Route.resource('/question-banks', 'QuestionBanksController').apiOnly().middleware({
+    index: 'checkRole:trainer',
+    store: 'checkRole:trainer',
+    show: 'checkRole:trainer',
+    update: 'checkRole:trainer,',
+    destroy: 'checkRole:trainer,',
+  })
 }).middleware(['auth:jwt'])
