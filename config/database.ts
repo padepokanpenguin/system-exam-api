@@ -35,6 +35,9 @@ const databaseConfig: DatabaseConfig = {
     */
     pg: {
       client: 'pg',
+      seeders: {
+        paths: ['./database/seeders/MainSeeder'],
+      },
       connection: {
         host: Env.get('PG_HOST'),
         port: Env.get('PG_PORT'),
@@ -48,8 +51,7 @@ const databaseConfig: DatabaseConfig = {
       healthCheck: false,
       debug: false,
     },
-
-  }
+  },
 }
 
 export default databaseConfig

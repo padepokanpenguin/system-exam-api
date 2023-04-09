@@ -9,7 +9,7 @@ export default class extends BaseSeeder {
       {
         id: 'b0cc9184-2695-4df3-8c4d-31688c537711',
         userId: 'cb17e5cb-b1d0-4884-9ee7-16336416e399',
-        questionBankId: 'fd093c0d-028d-49de-b45d-e0e5afe41d45',
+        questionBankId: 'c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4',
         isPublic: false,
         question: 'Peer to peer merupakan jenis jaringan',
         a: 'Jaringan PAN',
@@ -22,7 +22,7 @@ export default class extends BaseSeeder {
       {
         id: '8e681cb0-7d83-4247-b289-54edd4dd1720',
         userId: 'cb17e5cb-b1d0-4884-9ee7-16336416e399',
-        questionBankId: 'fd093c0d-028d-49de-b45d-e0e5afe41d45',
+        questionBankId: 'c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4',
         isPublic: false,
         question: 'Apakah kepanjangan dari WAN?',
         a: 'Wireless Areas Networking',
@@ -35,7 +35,7 @@ export default class extends BaseSeeder {
       {
         id: 'fc9c2776-9842-43ff-bc85-89b83a150414',
         userId: 'cb17e5cb-b1d0-4884-9ee7-16336416e399',
-        questionBankId: 'fd093c0d-028d-49de-b45d-e0e5afe41d45',
+        questionBankId: 'c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4',
         isPublic: false,
         question: 'Kepanjangan dari ISO adalah?',
         a: 'International Standards Organisation',
@@ -48,7 +48,7 @@ export default class extends BaseSeeder {
       {
         id: 'b58f3132-e138-4898-a172-fecb3c607ac4',
         userId: 'cb17e5cb-b1d0-4884-9ee7-16336416e399',
-        questionBankId: 'fd093c0d-028d-49de-b45d-e0e5afe41d45',
+        questionBankId: 'c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4',
         isPublic: false,
         question: 'Kepanjangan dari OSI?',
         a: 'Organisation Standards International',
@@ -61,7 +61,7 @@ export default class extends BaseSeeder {
       {
         id: '638cc2a2-f121-4519-9d64-916696dd5f58',
         userId: 'cb17e5cb-b1d0-4884-9ee7-16336416e399',
-        questionBankId: 'fd093c0d-028d-49de-b45d-e0e5afe41d45',
+        questionBankId: 'c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4',
         isPublic: false,
         question: 'Berikut adalah layer-layer pada OSI, kecuali…',
         a: 'Application layer',
@@ -74,7 +74,7 @@ export default class extends BaseSeeder {
       {
         id: '4a32f6c3-0be5-47de-9b4c-5ce56aaca307',
         userId: 'cb17e5cb-b1d0-4884-9ee7-16336416e399',
-        questionBankId: 'fd093c0d-028d-49de-b45d-e0e5afe41d45',
+        questionBankId: 'c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4',
         isPublic: true,
         question: 'Dimanakah letak OSI',
         a: 'Tergantung dimana letak kesepakatan Client dan juga Admin pada pengembangan jaringan berbasis luas',
@@ -87,7 +87,7 @@ export default class extends BaseSeeder {
       {
         id: '2399a5e4-4107-4bc5-a6a2-956b56c7257d',
         userId: 'cb17e5cb-b1d0-4884-9ee7-16336416e399',
-        questionBankId: 'fd093c0d-028d-49de-b45d-e0e5afe41d45',
+        questionBankId: 'c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4',
         isPublic: true,
         question: 'Mendeteksi dan memperbaiki eror data tingkat rendah dilakukan pada',
         a: 'Application layer',
@@ -100,7 +100,7 @@ export default class extends BaseSeeder {
       {
         id: '34ae7308-b642-45bb-8c66-78e8351e87a3',
         userId: 'cb17e5cb-b1d0-4884-9ee7-16336416e399',
-        questionBankId: 'fd093c0d-028d-49de-b45d-e0e5afe41d45',
+        questionBankId: 'c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4',
         isPublic: true,
         question:
           'Menjelaskan spesifikasi listrik, mekanis dan fungsional guna menangani data jaringan merupakan proses pada',
@@ -114,7 +114,7 @@ export default class extends BaseSeeder {
       {
         id: 'd4851bab-bf75-481a-b9d4-7729d3494bf2',
         userId: 'cb17e5cb-b1d0-4884-9ee7-16336416e399',
-        questionBankId: 'fd093c0d-028d-49de-b45d-e0e5afe41d45',
+        questionBankId: 'c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4',
         isPublic: true,
         question: 'Pengontrolan transfer data merupakan proses pada',
         a: 'Application layer',
@@ -127,7 +127,7 @@ export default class extends BaseSeeder {
       {
         id: 'a2c466f0-c981-453f-a2ae-e7009173b51e',
         userId: 'cb17e5cb-b1d0-4884-9ee7-16336416e399',
-        questionBankId: 'fd093c0d-028d-49de-b45d-e0e5afe41d45',
+        questionBankId: 'c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4',
         isPublic: true,
         question: 'Routing terjadi di',
         a: 'Network layer',
@@ -140,7 +140,7 @@ export default class extends BaseSeeder {
       {
         id: '7385913d-72a5-4831-a270-7297e2c2c773',
         userId: '31aaffab-37df-4e71-bd3c-0eed66ea2f7e',
-        questionBankId: 'fd093c0db9223497-189b-46c4-b436-c11729e441e0',
+        questionBankId: '67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d',
         isPublic: false,
         question:
           ' Autentikasi di mana browser melakukan enkripsi password sebelum mengirimkannya ke server disebut',
@@ -154,7 +154,7 @@ export default class extends BaseSeeder {
       {
         id: '0b6d7aee-c0f0-49bd-b418-25dc64b58a93',
         userId: '31aaffab-37df-4e71-bd3c-0eed66ea2f7e',
-        questionBankId: 'fd093c0db9223497-189b-46c4-b436-c11729e441e0',
+        questionBankId: '67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d',
         isPublic: false,
         question:
           ' Proses pengenalan peralatan, sistem operasi, kegiatan, aplikasi dan identitas user yang terhubung dengan jaringan komputer disebut',
@@ -168,7 +168,7 @@ export default class extends BaseSeeder {
       {
         id: '1be1fe3b-79da-47ab-b0bc-9d58d8808018',
         userId: '31aaffab-37df-4e71-bd3c-0eed66ea2f7e',
-        questionBankId: 'fd093c0db9223497-189b-46c4-b436-c11729e441e0',
+        questionBankId: '67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d',
         isPublic: false,
         question: 'Untuk merestart service apache web server, perintahnya adalah',
         a: '/etc/init.d/apache2 restart',
@@ -181,7 +181,7 @@ export default class extends BaseSeeder {
       {
         id: 'dc74f671-a3a4-469f-a6cb-88817b8a7010',
         userId: '31aaffab-37df-4e71-bd3c-0eed66ea2f7e',
-        questionBankId: 'fd093c0db9223497-189b-46c4-b436-c11729e441e0',
+        questionBankId: '67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d',
         isPublic: false,
         question: ' Untuk merestart service mysql server, perintahnya adalah',
         a: '/etc/init.d/apache2 restart',
@@ -194,7 +194,7 @@ export default class extends BaseSeeder {
       {
         id: '6db78123-53b5-4bf8-a179-48792c4e0b2f',
         userId: '31aaffab-37df-4e71-bd3c-0eed66ea2f7e',
-        questionBankId: 'fd093c0db9223497-189b-46c4-b436-c11729e441e0',
+        questionBankId: '67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d',
         isPublic: false,
         question:
           'Jaringan pribadi (bukan untuk akses umum) yang menggunakan medium nonpribadi (misalnya internet) untuk menghubungkan antar remote-site secara aman disebut',
@@ -208,7 +208,7 @@ export default class extends BaseSeeder {
       {
         id: '12031110-0266-4d61-8fcb-9f4a316da5ba',
         userId: '31aaffab-37df-4e71-bd3c-0eed66ea2f7e',
-        questionBankId: 'fd093c0db9223497-189b-46c4-b436-c11729e441e0',
+        questionBankId: '67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d',
         isPublic: true,
         question: 'VPN adalah sebuah koneksi Virtual yang bersifat private, karena ',
         a: 'Jaringan ini tidak ada secara fisik hanya berupa jaringan virtual',
@@ -221,7 +221,7 @@ export default class extends BaseSeeder {
       {
         id: '2c937575-d345-438e-97d7-39eee789e319',
         userId: '31aaffab-37df-4e71-bd3c-0eed66ea2f7e',
-        questionBankId: 'fd093c0db9223497-189b-46c4-b436-c11729e441e0',
+        questionBankId: '67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d',
         isPublic: true,
         question:
           'Proses yang dilakukan oleh firewall untuk `menghadang` dan memproses data dalam sebuah paket untuk menentukan bahwa paket tersebut diizinkan atau ditolak, berdasarkan kebijakan akses (access policy) yang diterapkan oleh seorang administrator disebut ',
@@ -235,7 +235,7 @@ export default class extends BaseSeeder {
       {
         id: '4c716fcd-351b-4e36-879c-3ab708d11750',
         userId: '31aaffab-37df-4e71-bd3c-0eed66ea2f7e',
-        questionBankId: 'fd093c0db9223497-189b-46c4-b436-c11729e441e0',
+        questionBankId: '67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d',
         isPublic: true,
         question:
           'Proses inspeksi paket yang tidak dilakukan dengan menggunakan struktur paket dan data yang terkandung dalam paket, tapi juga pada keadaan apa host-host yang saling berkomunikasi tersebut berada disebut',
@@ -249,7 +249,7 @@ export default class extends BaseSeeder {
       {
         id: '2b1b0609-3410-44e7-9929-86b9d03f2880',
         userId: '31aaffab-37df-4e71-bd3c-0eed66ea2f7e',
-        questionBankId: 'fd093c0db9223497-189b-46c4-b436-c11729e441e0',
+        questionBankId: '67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d',
         isPublic: true,
         question: 'Komputer yang terhubung ke file server dalam jaringan disebut ',
         a: 'Basestation',
@@ -262,7 +262,7 @@ export default class extends BaseSeeder {
       {
         id: '43c0714e-6e2a-4b5b-8025-957b8485cf36',
         userId: '31aaffab-37df-4e71-bd3c-0eed66ea2f7e',
-        questionBankId: 'fd093c0db9223497-189b-46c4-b436-c11729e441e0',
+        questionBankId: '67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d',
         isPublic: true,
         question:
           'PC yang dapat difungsikan sebagai router selama memiliki lebih dari satu interface jaringan, mampu mem-fordward paket IP, serta menjalankan program untuk mengatur routing paket disebut',

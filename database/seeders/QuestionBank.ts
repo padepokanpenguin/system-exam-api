@@ -7,11 +7,11 @@ export default class extends BaseSeeder {
     console.info('==========START SEEDING Bank SOAL')
     await QuestionBank.createMany([
       {
-        id: 'fd093c0d-028d-49de-b45d-e0e5afe41d45',
+        id: 'c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4',
         name: 'Jaringan',
       },
       {
-        id: 'fd093c0db9223497-189b-46c4-b436-c11729e441e0',
+        id: '67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d',
         name: 'Keamanan',
       },
     ])
