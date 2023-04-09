@@ -21,11 +21,7 @@ export default class User extends BaseModel {
   @column()
   public classId: string | null
 
-  @belongsTo(() => Class, {
-    onQuery(q) {
-      q.where('roles', 'participant')
-    },
-  })
+  @belongsTo(() => Class)
   public class: BelongsTo<typeof Class>
 
   @column()
@@ -35,9 +31,6 @@ export default class User extends BaseModel {
   public name: string
 
   @manyToMany(() => Class, {
-    onQuery(query) {
-      query.where('roles', 'trainer')
-    },
     pivotTable: 'trainer_class',
     pivotForeignKey: 'user_id',
   })

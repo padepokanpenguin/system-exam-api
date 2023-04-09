@@ -30,5 +30,11 @@ Route.get('/harus-login', async ({ response }) => {
 
 Route.group(() => {
   Route.resource('/kelas', 'ClassesController').apiOnly().middleware(verifyEmail).middleware(roles)
-  Route.resource('/users', 'UsersController').apiOnly()
+  Route.resource('/users', 'UsersController').apiOnly().middleware({
+    index: 'checkRole:trainer,participant',
+    store: 'checkRole:trainer',
+    show: 'checkRole:trainer,participant',
+    update: 'checkRole:trainer, participant',
+    destroy: 'checkRole:trainer, participant',
+  })
 }).middleware(['auth:jwt'])
