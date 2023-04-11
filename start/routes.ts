@@ -93,4 +93,22 @@ Route.group(() => {
     'checkRole:trainer',
     'verifyEmail',
   ])
+
+  Route.resource('users.exam-answer', 'ExamAnswersController')
+    .only(['index', 'store'])
+    .apiOnly()
+    .middleware({ '*': 'checkRole:trainer,participant' })
+    .middleware({ '*': 'verifyEmail' })
+  Route.get('/exam-answers/:id', 'ExamAnswersController.show').middleware([
+    'checkRole:trainer, participant',
+    'verifyEmail',
+  ])
+  Route.put('/exam-answers/:id', 'ExamAnswersController.update').middleware([
+    'checkRole: participant',
+    'verifyEmail',
+  ])
+  Route.delete('/exam-answers/:id', 'ExamAnswersController.destroy').middleware([
+    'checkRole: participant',
+    'verifyEmail',
+  ])
 }).middleware(['auth:jwt'])
