@@ -6,8 +6,8 @@ import Class from 'App/Models/Class'
 export default class ClassesController {
   public async index({ response }: HttpContextContract) {
     try {
-      const data = await Class.query().preload('users', (q) =>
-        q.select('nomor_induk', 'name', 'email')
+      const data = await Class.query().preload('user', (q) =>
+        q.select('nomor_induk', 'name', 'email', 'roles')
       )
 
       response.ok({ message: 'Berhasil mengambil data kelas', data })
