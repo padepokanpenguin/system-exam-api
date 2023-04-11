@@ -37,11 +37,44 @@ Route.group(() => {
     update: 'checkRole:trainer, participant',
     destroy: 'checkRole:trainer, participant',
   })
-  Route.resource('/question-banks', 'QuestionBanksController').apiOnly().middleware({
-    index: 'checkRole:trainer',
-    store: 'checkRole:trainer',
-    show: 'checkRole:trainer',
-    update: 'checkRole:trainer,',
-    destroy: 'checkRole:trainer,',
-  })
+  Route.resource('/question-banks', 'QuestionBanksController')
+    .apiOnly()
+    .middleware({
+      '*': 'checkRole:trainer',
+    })
+    .middleware({ '*': 'verifyEmail' })
+  // Route.resource('question-banks.questions', 'QuestionsController').apiOnly().middleware({
+  //   '*': 'checkRole:trainer',
+  // })
+  Route.resource('question-banks.questions', 'QuestionsController')
+    .only(['index', 'store'])
+    .apiOnly()
+    .middleware({ '*': 'checkRole:trainer' })
+    .middleware({ '*': 'verifyEmail' })
+  Route.get('/questions/:id', 'QuestionsController.show').middleware([
+    'checkRole:trainer',
+    'verifyEmail',
+  ])
+  Route.put('/questions/:id', 'QuestionsController.update').middleware([
+    'checkRole:trainer',
+    'verifyEmail',
+  ])
+  Route.delete('/questions/:id', 'QuestionsController.destroy').middleware([
+    'checkRole:trainer',
+    'verifyEmail',
+  ])
+  Route.resource('classes.exams', 'ExamsController')
+    .apiOnly()
+    .only(['index', 'store'])
+    .middleware({ index: 'checkRole:trainer, participant', store: 'checkRole:trainer' })
+    .middleware({ '*': 'verifyEmail' })
+  Route.get('/exams/:id', 'ExamsController.show').middleware([
+    'checkRole:trainer, participant',
+    'verifyEmail',
+  ])
+  Route.put('/exams/:id', 'ExamsController.update').middleware(['checkRole:trainer', 'verifyEmail'])
+  Route.delete('/exams/:id', 'ExamsController.destroy').middleware([
+    'checkRole:trainer',
+    'verifyEmail',
+  ])
 }).middleware(['auth:jwt'])

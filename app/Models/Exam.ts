@@ -19,7 +19,7 @@ export default class Exam extends BaseModel {
   @belongsTo(() => User, {
     foreignKey: 'trainerId',
   })
-  public participants: BelongsTo<typeof User>
+  public trainer: BelongsTo<typeof User>
 
   @column()
   public name: string

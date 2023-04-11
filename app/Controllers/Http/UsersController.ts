@@ -28,9 +28,9 @@ export default class UsersController {
         }),
       })
 
-      const data = await User.create(payload)
-
       const token = string.generateRandom(64)
+      const data = await User.create({ ...payload, emailVerificationToken: token })
+
       await Mail.send((message) => {
         message.from('arianurjamal@noreply.com').to(data.email).htmlView('emails/register', {
           name: data.name,
