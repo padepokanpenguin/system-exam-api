@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import User from './User'
+import ExamQuestion from './ExamQuestion'
 
 export default class ExamAnswer extends BaseModel {
   @column({ isPrimary: true })
@@ -8,8 +10,14 @@ export default class ExamAnswer extends BaseModel {
   @column()
   public userId: string
 
+  @belongsTo(() => User)
+  public participants: BelongsTo<typeof User>
+
   @column()
   public examQuestionId: string
+
+  @belongsTo(() => ExamQuestion)
+  public examQuestion: BelongsTo<typeof ExamQuestion>
 
   @column()
   public answer: string

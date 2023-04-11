@@ -77,4 +77,20 @@ Route.group(() => {
     'checkRole:trainer',
     'verifyEmail',
   ])
+  Route.resource('exams.exam-question', 'ExamQuestionsController')
+    .only(['index', 'store'])
+    .middleware({ index: 'checkRole:trainer, participant', store: 'checkRole:trainer' })
+    .middleware({ '*': 'verifyEmail' })
+  Route.get('/exam-question/:id', 'ExamQuestionsController.show').middleware([
+    'checkRole:trainer, participant',
+    'verifyEmail',
+  ])
+  Route.put('/exam-question/:id', 'ExamQuestionsController.update').middleware([
+    'checkRole:trainer, participant',
+    'verifyEmail',
+  ])
+  Route.delete('/exam-question/:id', 'ExamQuestionsController.destroy').middleware([
+    'checkRole:trainer',
+    'verifyEmail',
+  ])
 }).middleware(['auth:jwt'])
