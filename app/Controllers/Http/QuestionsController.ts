@@ -2,6 +2,7 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import { ResponseError } from 'App/Exceptions/ResponseError'
 import Question from 'App/Models/Question'
+import { shuffleArray } from 'App/lib/helper'
 
 export default class QuestionsController {
   public async index({ response, params }: HttpContextContract) {
@@ -23,6 +24,7 @@ export default class QuestionsController {
         .preload('questionBank')
         .where('questionBankId', questionBankId)
 
+      shuffleArray(data)
       response.ok({ message: 'Berhasil mengambil data Soal', data })
     } catch (error) {
       ResponseError.handler(error, response, 'Question Co ln:18')

@@ -12,8 +12,8 @@ export default class extends BaseSeeder {
         classId: '94aa4f99-0ed7-4663-9d09-455052c896b7',
         trainerId: 'cb17e5cb-b1d0-4884-9ee7-16336416e399',
         name: 'Ujian Harian Jaringan',
-        startTime: DateTime.now(),
-        endTime: DateTime.now(),
+        startTime: DateTime.local(2023, 4, 11, 8, 40, 0),
+        endTime: DateTime.local(2023, 4, 11, 11, 40, 0),
         duration: 90,
       },
       {
@@ -21,8 +21,8 @@ export default class extends BaseSeeder {
         classId: '94aa4f99-0ed7-4663-9d09-455052c896b7',
         trainerId: '31aaffab-37df-4e71-bd3c-0eed66ea2f7e',
         name: 'Ujian Harian Keamnanansiber',
-        startTime: DateTime.now(),
-        endTime: DateTime.now(),
+        startTime: DateTime.local(2023, 4, 11, 8, 40, 0),
+        endTime: DateTime.local(2023, 4, 11, 11, 40, 0),
         duration: 120,
       },
     ])

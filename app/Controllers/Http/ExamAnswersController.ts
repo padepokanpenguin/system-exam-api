@@ -40,7 +40,9 @@ export default class ExamAnswersController {
     try {
       const { id } = params
 
-      const data = await ExamAnswer.query().where('id', id)
+      const data = await ExamAnswer.query()
+        .where('id', id)
+        .preload('examQuestion', (q) => q.preload('questions'))
 
       response.ok({ message: 'Berhasil mengambil data detail jawaban ujian', data })
     } catch (error) {

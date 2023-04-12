@@ -3,13 +3,19 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import { ResponseError } from 'App/Exceptions/ResponseError'
 import ExamQuestion from 'App/Models/ExamQuestion'
 import Question from 'App/Models/Question'
+import { shuffleArray } from 'App/lib/helper'
 
 export default class ExamQuestionsController {
   public async index({ response, params }: HttpContextContract) {
     try {
       const { exam_id: examId } = params
 
-      const data = await ExamQuestion.query().where('examId', examId)
+      const data = await ExamQuestion.query()
+        .where('examId', examId)
+        .preload('questions')
+        .preload('exams')
+
+      shuffleArray(data)
 
       response.ok({ message: 'Berhasil mengambil data soal ujian', data })
     } catch (error) {
