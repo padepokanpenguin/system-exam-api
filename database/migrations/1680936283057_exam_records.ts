@@ -9,7 +9,7 @@ export default class extends BaseSchema {
       table.uuid('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE')
       table.uuid('exam_id').unsigned().references('id').inTable('exams').onDelete('CASCADE')
       table.float('result')
-      table.timestamp('submit_time')
+      table.timestamp('submit_time').nullable()
       table.timestamp('start_time')
       table.timestamp('end_time')
 

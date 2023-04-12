@@ -34,8 +34,8 @@ Route.group(() => {
     index: 'checkRole:trainer,participant',
     store: 'checkRole:trainer',
     show: 'checkRole:trainer,participant',
-    update: 'checkRole:trainer, participant',
-    destroy: 'checkRole:trainer, participant',
+    update: 'checkRole:trainer,participant',
+    destroy: 'checkRole:trainer,participant',
   })
   Route.resource('/question-banks', 'QuestionBanksController')
     .apiOnly()
@@ -66,10 +66,10 @@ Route.group(() => {
   Route.resource('classes.exams', 'ExamsController')
     .apiOnly()
     .only(['index', 'store'])
-    .middleware({ index: 'checkRole:trainer, participant', store: 'checkRole:trainer' })
+    .middleware({ index: 'checkRole:trainer,participant', store: 'checkRole:trainer' })
     .middleware({ '*': 'verifyEmail' })
   Route.get('/exams/:id', 'ExamsController.show').middleware([
-    'checkRole:trainer, participant',
+    'checkRole:trainer,participant',
     'verifyEmail',
   ])
   Route.put('/exams/:id', 'ExamsController.update').middleware(['checkRole:trainer', 'verifyEmail'])
@@ -79,14 +79,14 @@ Route.group(() => {
   ])
   Route.resource('exams.exam-question', 'ExamQuestionsController')
     .only(['index', 'store'])
-    .middleware({ index: 'checkRole:trainer, participant', store: 'checkRole:trainer' })
+    .middleware({ index: 'checkRole:trainer,participant', store: 'checkRole:trainer' })
     .middleware({ '*': 'verifyEmail' })
   Route.get('/exam-question/:id', 'ExamQuestionsController.show').middleware([
-    'checkRole:trainer, participant',
+    'checkRole:trainer,participant',
     'verifyEmail',
   ])
   Route.put('/exam-question/:id', 'ExamQuestionsController.update').middleware([
-    'checkRole:trainer, participant',
+    'checkRole:trainer,participant',
     'verifyEmail',
   ])
   Route.delete('/exam-question/:id', 'ExamQuestionsController.destroy').middleware([
@@ -94,21 +94,21 @@ Route.group(() => {
     'verifyEmail',
   ])
 
-  Route.resource('users.exam-answer', 'ExamAnswersController')
+  Route.resource('exams.exam-questions.exam-answer', 'ExamAnswersController')
     .only(['index', 'store'])
     .apiOnly()
-    .middleware({ '*': 'checkRole:trainer,participant' })
+    .middleware({ index: 'checkRole:trainer,participant', store: 'checkRole:participant' })
     .middleware({ '*': 'verifyEmail' })
   Route.get('/exam-answers/:id', 'ExamAnswersController.show').middleware([
-    'checkRole:trainer, participant',
+    'checkRole:trainer,participant',
     'verifyEmail',
   ])
   Route.put('/exam-answers/:id', 'ExamAnswersController.update').middleware([
-    'checkRole: participant',
+    'checkRole:participant',
     'verifyEmail',
   ])
   Route.delete('/exam-answers/:id', 'ExamAnswersController.destroy').middleware([
-    'checkRole: participant',
+    'checkRole:participant',
     'verifyEmail',
   ])
   Route.resource('exams.exam-records', 'ExamRecordsController')

@@ -23,7 +23,7 @@ export default class ExamRecord extends BaseModel {
   public result: number
 
   @column.dateTime()
-  public submitTime: DateTime
+  public submitTime: DateTime | null
 
   @column.dateTime()
   public startTime: DateTime
