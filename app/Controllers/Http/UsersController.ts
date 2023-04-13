@@ -8,7 +8,7 @@ import User from 'App/Models/User'
 export default class UsersController {
   public async index({ response }: HttpContextContract) {
     try {
-      const data = await User.query().preload('class', (q) => q.select('name', 'code'))
+      const data = await User.query().select('id', 'nomor_induk', 'name', 'email', 'roles')
 
       response.ok({ message: 'Berhasil mengambil data user', data })
     } catch (error) {

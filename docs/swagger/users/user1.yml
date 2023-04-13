@@ -1,0 +1,28 @@
+paths:
+  /users:
+    get:
+      tags:
+        - User
+      summary: Get All Users
+      description: User must be registered to access this endpoint.
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil Mengambil data user'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      example:
+                        id: 94aa4f99-0ed7-4663-9d09-455052c896b7
+                        nomor_induk: 123456789
+                        name: John Doe
+                        email: johndoe@example.com
+                        roles: participant

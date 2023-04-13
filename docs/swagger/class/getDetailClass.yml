@@ -1,0 +1,63 @@
+paths:
+  /kelas/{classId}:
+    get:
+      tags:
+        - Class
+      summary: Get Class Detail
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: "class_id"
+          in: "path"
+          description: "ID of the class to fetch details for"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil menampilkan kelas detail'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '94aa4f99-0ed7-4663-9d09-455052c896b7'
+                      name:
+                        type: string
+                        example: 'Rekayasa Perangkat Lunak'
+                      code:
+                        type: string
+                        example: 'RPL'
+                      user:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 'c9acc51c-d443-4b33-8f9c-5e2b49552bc7'
+                            class_id:
+                              type: string
+                              example: '94aa4f99-0ed7-4663-9d09-455052c896b7'
+                            nomor_induk:
+                              type: string
+                              example: '123456789'
+                            name:
+                              type: string
+                              example: 'John Donk'
+                            email:
+                              type: string
+                              example: johndonk@mail.com
+                            roles:
+                              type: string
+                              example: participant
+                            is_verified:
+                              type: boolean
+                              example: false
+

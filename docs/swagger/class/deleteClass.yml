@@ -1,0 +1,25 @@
+paths:
+  /kelas/{classId}:
+    delete:
+      tags:
+        - Class
+      summary: Delete Class
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: "class_id"
+          in: "path"
+          description: "ID of the class to fetch details for"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil menghapus data kelas'
+

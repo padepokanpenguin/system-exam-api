@@ -1,6 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Mail from '@ioc:Adonis/Addons/Mail'
 import { string } from '@ioc:Adonis/Core/Helpers'
+import Hash from '@ioc:Adonis/Core/Hash'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import { ResponseError } from 'App/Exceptions/ResponseError'
 import User from 'App/Models/User'
@@ -45,6 +46,11 @@ export default class AuthController {
       })
 
       const data = await User.query().where('email', payload.email).firstOrFail()
+      const password = await Hash.verify(data.password, payload.password)
+
+      if (!password || !data) {
+        return response.badRequest({ message: 'Email atau Password yang anda masukkan salah!' })
+      }
 
       const token = await auth.use('jwt').generate(data)
 

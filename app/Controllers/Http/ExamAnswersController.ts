@@ -41,11 +41,11 @@ export default class ExamAnswersController {
 
       const data = await ExamAnswer.create({ ...payload, examQuestionId, userId: auth.user!.id })
 
-      // if (data.createdAt < exam.startTime || data.createdAt > exam.endTime) {
-      //   return response.badRequest({
-      //     message: `Maaf anda tidak bisa mengerjakan ujian sekarang, waktu pengerjaan ujian harus pukul ${exam.startTime} hingga ${exam.endTime}`,
-      //   })
-      // }
+      if (data.createdAt < exam.startTime || data.createdAt > exam.endTime) {
+        return response.badRequest({
+          message: `Maaf anda tidak bisa mengerjakan ujian sekarang, waktu pengerjaan ujian harus pukul ${exam.startTime} hingga ${exam.endTime}`,
+        })
+      }
 
       response.ok({ message: 'Berhasil membuat data jawaban ujian', data })
     } catch (error) {

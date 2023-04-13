@@ -1,0 +1,30 @@
+paths:
+  /auth/logout:
+    post:
+      tags:
+        - Auth
+      summary: User Logout
+      description: User logout from apps.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                refresh_token:
+                  type: string
+                  example: '6d4d344bc3419f8c760d09026f64c8a303f7e708778babde541bdebc01c3cf48'
+                  required: true
+                
+      responses:
+        '200': # status code
+          description: An User Object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Logout Berhasil'

@@ -33,7 +33,8 @@
       "@adonisjs/mail",
       "@adonisjs/auth",
       "adonis5-jwt",
-      "@adonisjs/view"
+      "@adonisjs/view",
+      "adonis5-swagger"
     ]
   }
 }

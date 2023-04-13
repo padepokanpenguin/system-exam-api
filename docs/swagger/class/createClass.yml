@@ -1,0 +1,41 @@
+paths:
+  /kelas:
+    post:
+      tags:
+        - Class
+      summary: Create a lass
+      description: User must be registered to access this endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: 'Ilmu Pengetahun Sosial'
+                  required: true
+                code:
+                  type: string
+                  example: 'IPS'
+                  required: true
+      responses:
+         '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil menambahkan data kelas'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      example:
+                        id: b9c68010-88b0-4d40-8887-e5352969806a
+                        name: Ilmu Pengetahun Sosial
+                        code: IPS

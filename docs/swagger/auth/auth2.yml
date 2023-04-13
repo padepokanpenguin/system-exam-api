@@ -1,0 +1,60 @@
+paths:
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: User Login
+      description: User login for getting access to privacy routes.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: 'johndoe@getnada.com'
+                  required: true
+                password:
+                  type: string
+                  example: 'secret'
+                  required: true
+      responses:
+        '200': # status code
+          description: An User Object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Login Berhasil'
+                  data:
+                    type: object
+                    example:
+                      id: 80624501-b09b-4000-bc14-67a3cc0eaa74
+                      class_id: null
+                      nomor_induk: null
+                      name: John Doe
+                      email: johndoe@getnada.com
+                      roles: participant
+                      is_verified: true
+                  token:
+                    type: object
+                    example:
+                      type: bearer
+                      token: eyJhbGciOiJSUzI1NiJ9.eyJkYXRhIjp7InVzZXJJZCI6IjgwNjI0NTAxLWIwOWItNDAwMC1iYzE0LTY3YTNjYzBlYWE3NCIsInVzZXIiOnsibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huZG9lQGdldG5hZGEuY29tIn19LCJpYXQiOjE2ODEzNDYxNjAsImV4cCI6MTY4MzkzODE2MH0.u49GyiO9Cqz_5kdH83jzUP2KGOqd4CbL0iYw-0OFEACzMk7EvFpDQyVPOTPVkQZhF-31_-sMrSwrdfBb3QpHPtYG-Qe-Sim3yM-6Np4iApqkTSBNxub5GMJcyOmN7DTRauC_lD427ZYSJjdk-m6h6ITtkwfUZnAMkkonw9xvbNb128YScfdBzPyl6qsx3Y3rKlLSs3Un4xgsmb7WXkF-iHh8fIs3t1FdqDen_LP_nnWbjNMxhXy3f-kaHKugCdnPmjQk5D3yMqRA1DF2U09jykYCISk1XKw0zaGE32bjWIDvn1Um5D8FQCMWucAoh8FWPra5PXR5S69yEZ3bQxw24_MeC9_cLalouvGnS5LvmqBre8KVqG8X1q2ZzpMe0zXetW6k54aj4xuj1wXod5LWc_t2nTkQSGuN_S2Ldz7jsay92rEbJliLdqOp9qdFEAFtNGnqi06gbkh9_85_IU1xUW6VlU5nSJSlbxQftBts1KLfG8skoJsn8fjPUvjokyazhOKwH17gvakiPuENu32oVm4tJ5i79zg7zIwYKLewwFAPthDAQj72hUFvXjA5KWGNn8jKm1qTHnguRbPJ4jFgye8xj_BdYxjJWvzdB9TjfPPWpkkFoLJU8mT53RJ1APokCP_2kgzlUrc74fd5yeM_hpyrgqN6Vv-tDpPR_dfVojk
+                      refreshToken: 58e5df0627d720313962f24ad02c04c94fbb6f213779b3f7f8fb467854b6de1f
+                      expiret_at: 2023-05-13T07:36:00.400+07:00
+        '400':
+          description: Error Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Email atau Password yang anda masukkan salah!'

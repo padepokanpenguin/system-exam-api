@@ -6,9 +6,7 @@ import Class from 'App/Models/Class'
 export default class ClassesController {
   public async index({ response }: HttpContextContract) {
     try {
-      const data = await Class.query().preload('user', (q) =>
-        q.select('nomor_induk', 'name', 'email', 'roles')
-      )
+      const data = await Class.query()
 
       response.ok({ message: 'Berhasil mengambil data kelas', data })
     } catch (error) {
@@ -37,7 +35,10 @@ export default class ClassesController {
     try {
       const { id } = params
 
-      const data = await Class.query().where('id', id).firstOrFail()
+      const data = await Class.query()
+        .preload('user', (q) => q.select('id', 'nomor_induk', 'name', 'email', 'roles'))
+        .where('id', id)
+        .firstOrFail()
 
       response.ok({ message: 'Berhasil menampilkan kelas detail', data })
     } catch (error) {

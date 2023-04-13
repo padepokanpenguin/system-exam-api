@@ -1,0 +1,50 @@
+paths:
+  /kelas/{classId}:
+    put:
+      tags:
+        - Class
+      summary: Update Class 
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: "class_id"
+          in: "path"
+          description: "ID of the class to fetch details for"
+          required: true
+          type: "string"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: 'Ilmu Pengetahun Zosial'
+                code:
+                  type: string
+                  example: 'IPZ'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil menampilkan kelas detail'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 'b9c68010-88b0-4d40-8887-e5352969806a'
+                      name:
+                        type: string
+                        example: 'Ilmu Pengetahun Zosial'
+                      code:
+                        type: string
+                        example: 'IPZ'
+

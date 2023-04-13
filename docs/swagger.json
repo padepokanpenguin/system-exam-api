@@ -1,0 +1,414 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Exam API System",
+    "version": "1.0.0",
+    "description": "Exam API System created with adonisjs for finishing Final Project in FG Bootcamp"
+  },
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "User Registration",
+        "description": "User registration for creating user.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string", "example": "John Doe", "required": true },
+                  "email": { "type": "string", "example": "johndoe@getnada.com", "required": true },
+                  "password": { "type": "string", "example": "secret", "required": true },
+                  "passwordConfirmaion": {
+                    "type": "string",
+                    "example": "secret",
+                    "required": true
+                  },
+                  "roles": {
+                    "type": "string",
+                    "required": true,
+                    "enum": ["participant", "trainer"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An User Object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "uuid", "example": "80624501-b09b-4000-bc14-67a3cc0eaa74" },
+                    "name": { "type": "string", "example": "John Doe" },
+                    "email": { "type": "string", "example": "johndoe@getnada.com" },
+                    "roles": { "type": "string", "example": "participant" },
+                    "is_verified": { "type": "boolean", "example": false }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "User Login",
+        "description": "User login for getting access to privacy routes.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string", "example": "johndoe@getnada.com", "required": true },
+                  "password": { "type": "string", "example": "secret", "required": true }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An User Object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Login Berhasil" },
+                    "data": {
+                      "type": "object",
+                      "example": {
+                        "id": "80624501-b09b-4000-bc14-67a3cc0eaa74",
+                        "class_id": null,
+                        "nomor_induk": null,
+                        "name": "John Doe",
+                        "email": "johndoe@getnada.com",
+                        "roles": "participant",
+                        "is_verified": true
+                      }
+                    },
+                    "token": {
+                      "type": "object",
+                      "example": {
+                        "type": "bearer",
+                        "token": "eyJhbGciOiJSUzI1NiJ9.eyJkYXRhIjp7InVzZXJJZCI6IjgwNjI0NTAxLWIwOWItNDAwMC1iYzE0LTY3YTNjYzBlYWE3NCIsInVzZXIiOnsibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huZG9lQGdldG5hZGEuY29tIn19LCJpYXQiOjE2ODEzNDYxNjAsImV4cCI6MTY4MzkzODE2MH0.u49GyiO9Cqz_5kdH83jzUP2KGOqd4CbL0iYw-0OFEACzMk7EvFpDQyVPOTPVkQZhF-31_-sMrSwrdfBb3QpHPtYG-Qe-Sim3yM-6Np4iApqkTSBNxub5GMJcyOmN7DTRauC_lD427ZYSJjdk-m6h6ITtkwfUZnAMkkonw9xvbNb128YScfdBzPyl6qsx3Y3rKlLSs3Un4xgsmb7WXkF-iHh8fIs3t1FdqDen_LP_nnWbjNMxhXy3f-kaHKugCdnPmjQk5D3yMqRA1DF2U09jykYCISk1XKw0zaGE32bjWIDvn1Um5D8FQCMWucAoh8FWPra5PXR5S69yEZ3bQxw24_MeC9_cLalouvGnS5LvmqBre8KVqG8X1q2ZzpMe0zXetW6k54aj4xuj1wXod5LWc_t2nTkQSGuN_S2Ldz7jsay92rEbJliLdqOp9qdFEAFtNGnqi06gbkh9_85_IU1xUW6VlU5nSJSlbxQftBts1KLfG8skoJsn8fjPUvjokyazhOKwH17gvakiPuENu32oVm4tJ5i79zg7zIwYKLewwFAPthDAQj72hUFvXjA5KWGNn8jKm1qTHnguRbPJ4jFgye8xj_BdYxjJWvzdB9TjfPPWpkkFoLJU8mT53RJ1APokCP_2kgzlUrc74fd5yeM_hpyrgqN6Vv-tDpPR_dfVojk",
+                        "refreshToken": "58e5df0627d720313962f24ad02c04c94fbb6f213779b3f7f8fb467854b6de1f",
+                        "expiret_at": "2023-05-13T07:36:00.400+07:00"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Email atau Password yang anda masukkan salah!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "User Logout",
+        "description": "User logout from apps.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "refresh_token": {
+                    "type": "string",
+                    "example": "6d4d344bc3419f8c760d09026f64c8a303f7e708778babde541bdebc01c3cf48",
+                    "required": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An User Object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "message": { "type": "string", "example": "Logout Berhasil" } }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kelas": {
+      "post": {
+        "tags": ["Class"],
+        "summary": "Create a lass",
+        "description": "User must be registered to access this endpoint.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Ilmu Pengetahun Sosial",
+                    "required": true
+                  },
+                  "code": { "type": "string", "example": "IPS", "required": true }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Berhasil menambahkan data kelas" },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "example": {
+                          "id": "b9c68010-88b0-4d40-8887-e5352969806a",
+                          "name": "Ilmu Pengetahun Sosial",
+                          "code": "IPS"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Class"],
+        "summary": "Get All Class",
+        "description": "User must be registered to access this endpoint.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Berhasil Mengambil data kelas" },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "example": {
+                          "id": "94aa4f99-0ed7-4663-9d09-455052c896b7",
+                          "name": "Rekayasa Perangkat Lunak",
+                          "code": "RPL"
+                        }
+                      },
+                      "user": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "example": {
+                            "id": "c9acc51c-d443-4b33-8f9c-5e2b49552bc7",
+                            "nomor_induk": 123456789,
+                            "name": "John Doe",
+                            "email": "john@example.com",
+                            "roles": "participant"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kelas/{classId}": {
+      "delete": {
+        "tags": ["Class"],
+        "summary": "Delete Class",
+        "description": "User must be registered to access this endpoint.",
+        "parameters": [
+          {
+            "name": "class_id",
+            "in": "path",
+            "description": "ID of the class to fetch details for",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Berhasil menghapus data kelas" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Class"],
+        "summary": "Get Class Detail",
+        "description": "User must be registered to access this endpoint.",
+        "parameters": [
+          {
+            "name": "class_id",
+            "in": "path",
+            "description": "ID of the class to fetch details for",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Berhasil menampilkan kelas detail" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "94aa4f99-0ed7-4663-9d09-455052c896b7"
+                        },
+                        "name": { "type": "string", "example": "Rekayasa Perangkat Lunak" },
+                        "code": { "type": "string", "example": "RPL" },
+                        "user": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "example": "c9acc51c-d443-4b33-8f9c-5e2b49552bc7"
+                              },
+                              "class_id": {
+                                "type": "string",
+                                "example": "94aa4f99-0ed7-4663-9d09-455052c896b7"
+                              },
+                              "nomor_induk": { "type": "string", "example": "123456789" },
+                              "name": { "type": "string", "example": "John Donk" },
+                              "email": { "type": "string", "example": "johndonk@mail.com" },
+                              "roles": { "type": "string", "example": "participant" },
+                              "is_verified": { "type": "boolean", "example": false }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Class"],
+        "summary": "Update Class",
+        "description": "User must be registered to access this endpoint.",
+        "parameters": [
+          {
+            "name": "class_id",
+            "in": "path",
+            "description": "ID of the class to fetch details for",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string", "example": "Ilmu Pengetahun Zosial" },
+                  "code": { "type": "string", "example": "IPZ" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Berhasil menampilkan kelas detail" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "b9c68010-88b0-4d40-8887-e5352969806a"
+                        },
+                        "name": { "type": "string", "example": "Ilmu Pengetahun Zosial" },
+                        "code": { "type": "string", "example": "IPZ" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": []
+}

@@ -1,0 +1,58 @@
+paths:
+  /users:
+    post:
+      tags:
+        - User
+      summary: Create an user
+      description: User must be registered and the role must be trainer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: 'John Doe'
+                  required: true
+                email:
+                  type: string
+                  example: 'johndoe@example.com'
+                  required: true
+                password:
+                  type: string
+                  example: 'secret'
+                  required: true
+                roles:
+                  type: string
+                  required: true
+                  enum:
+                    - participant
+                    - trainer
+                classId:
+                  type: string
+                  required: true
+                  example: '94aa4f99-0ed7-4663-9d09-455052c896b7'
+      responses:
+         '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil membuat user'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      example:
+                        id: cd484052-08c1-421b-84e0-cc2d36c8af8e
+                        class_id: 94aa4f99-0ed7-4663-9d09-455052c896b7
+                        name: John Doe
+                        email: johndoe@example.com
+                        roles: participant
+                        is_verified: false

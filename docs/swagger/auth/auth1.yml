@@ -1,0 +1,60 @@
+paths:
+  /auth/register:
+    post:
+      tags:
+        - Auth
+      summary: User Registration
+      description: User registration for creating user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: 'John Doe'
+                  required: true
+                email:
+                  type: string
+                  example: 'johndoe@getnada.com'
+                  required: true
+                password:
+                  type: string
+                  example: 'secret'
+                  required: true
+                passwordConfirmaion:
+                  type: string
+                  example: 'secret'
+                  required: true
+                roles:
+                  type: string
+                  required: true
+                  enum:
+                    - participant
+                    - trainer
+      responses:
+        '200': # status code
+          description: An User Object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: uuid
+                    example: '80624501-b09b-4000-bc14-67a3cc0eaa74'
+                  name:
+                    type: string
+                    example: 'John Doe'
+                  email:
+                    type: string
+                    example: 'johndoe@getnada.com'
+                  roles:
+                    type: string
+                    example: 'participant'
+                  is_verified:
+                    type: boolean
+                    example: false
+
