@@ -1,0 +1,23 @@
+paths:
+  /users/{userId}:
+    delete:
+      tags:
+        - User
+      summary: Delete user
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: 'user_id'
+          in: 'path'
+          required: true
+          type: string
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil menghapus data user'

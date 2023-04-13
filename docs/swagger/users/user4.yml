@@ -1,0 +1,48 @@
+paths:
+  /users/{userId}:
+    put:
+      tags:
+        - User
+      summary: Get user's detail
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: 'user_id'
+          in: 'path'
+          required: true
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nomorInduk:
+                  type: string
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil memperbarui data detail User'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      example:
+                        id: cd484052-08c1-421b-84e0-cc2d36c8af8e
+                        nomor_induk: 123456789
+                        name: John Doe
+                        email: johndoe@example.com
+                        roles: participant

@@ -52,7 +52,7 @@ export default class UsersController {
 
       const data = await User.query()
         .where('id', id)
-        .select('nomor_induk', 'name', 'email', 'roles')
+        .select('id', 'nomor_induk', 'name', 'email', 'roles')
         .firstOrFail()
 
       response.ok({ message: 'Berhasil mengambil data detail User', data })
@@ -67,8 +67,9 @@ export default class UsersController {
       const payload = await request.validate({
         schema: schema.create({
           nomorInduk: schema.string.optional({ trim: true }),
+          name: schema.string.optional({ trim: true }),
           email: schema.string.optional({ trim: true }, [rules.email()]),
-          password: schema.string({ trim: true }),
+          password: schema.string.optional({ trim: true }),
         }),
       })
 
