@@ -1,0 +1,49 @@
+paths:
+  /exam-question/{id}:
+    put:
+      tags:
+        - Exam Question
+      summary: update Exam question
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of the exam to fetch details for'
+          required: true
+          type: 'string'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                questionId:
+                  type: string
+                  example: 12031110-0266-4d61-8fcb-9f4a316da5ba
+                  required: true
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil memperbarui data soal ujian'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 734e7519-b8e0-4e8b-a433-e5f869aa5d0f
+                        exam_id:
+                          type: string
+                          example: 6112359f-ef3c-4cbc-9bfe-cd281694ac90
+                        question_id:
+                          type: string
+                          example: 12031110-0266-4d61-8fcb-9f4a316da5ba

@@ -1,0 +1,97 @@
+paths:
+  /exam-question/{id}:
+    get:
+      tags:
+        - Exam Question
+      summary: Get Exam detail
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of the exam to fetch details for'
+          required: true
+          type: 'string'
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil mengambil data soal ujian'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 734e7519-b8e0-4e8b-a433-e5f869aa5d0f
+                        exam_id:
+                          type: string
+                          example: 6112359f-ef3c-4cbc-9bfe-cd281694ac90
+                        question_id:
+                          type: string
+                          example: 1be1fe3b-79da-47ab-b0bc-9d58d8808018
+                        exams:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 6112359f-ef3c-4cbc-9bfe-cd281694ac90
+                            class_id:
+                              type: string
+                              example: 94aa4f99-0ed7-4663-9d09-455052c896b7
+                            trainer_id:
+                              type: string
+                              example: 31aaffab-37df-4e71-bd3c-0eed66ea2f7e
+                            name:
+                              type: string
+                              example: Ujian Harian Keamnanan siber
+                            start_time:
+                              type: string
+                              format: date-time
+                              example: 2023-04-09T09:24:25.169+07:00
+                            end_time:
+                              type: string
+                              format: date-time
+                              example: 2023-04-09T09:24:25.169+07:00
+                            duration:
+                              type: number
+                              example: 120
+                        questions:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 1be1fe3b-79da-47ab-b0bc-9d58d8808018
+                            user_id:
+                              type: string
+                              example: 31aaffab-37df-4e71-bd3c-0eed66ea2f7e
+                            question_bank_id:
+                              type: string
+                              example: 67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d
+                            question:
+                              type: string
+                              example: Untuk merestart service apache web server, perintahnya adalah
+                            a:
+                              type: string
+                              example: /etc/init.d/apache2 restart
+                            b:
+                              type: string
+                              example: /etc/init.d/mysql restart
+                            c:
+                              type: string
+                              example: /etc/init.d/apache web server restart
+                            d:
+                              type: string
+                              example: /etc/init.d/mysql-server restart
+                            e:
+                              type: string
+                              example: /etc/init.d/apache-server restart
+                            answer_key:
+                              type: string
+                              example: a

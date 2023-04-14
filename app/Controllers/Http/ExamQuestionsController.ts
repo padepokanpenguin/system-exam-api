@@ -53,7 +53,11 @@ export default class ExamQuestionsController {
     try {
       const { id } = params
 
-      const data = await ExamQuestion.query().where('id', id).firstOrFail()
+      const data = await ExamQuestion.query()
+        .where('id', id)
+        .preload('exams')
+        .preload('questions')
+        .firstOrFail()
 
       response.ok({ message: 'Berhasil mengambil data detail soal ujian', data })
     } catch (error) {
