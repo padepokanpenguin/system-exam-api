@@ -82,6 +82,26 @@ export default class UsersController {
     }
   }
 
+  public async trainerUpdate({ request, response }: HttpContextContract) {
+    try {
+      const { id } = request.body()
+
+      const payload = await request.validate({
+        schema: schema.create({
+          roles: schema.enum.optional(['trainer', 'participant']),
+          classId: schema.string.optional({ trim: true }, [rules.uuid({ version: 4 })]),
+        }),
+      })
+
+      const data = await User.findByOrFail('id', id)
+      await data.merge(payload).save()
+
+      response.ok({ message: 'Berhasil memperbarui data user', data })
+    } catch (error) {
+      ResponseError.handler(error, response, 'User Co ln:101')
+    }
+  }
+
   public async destroy({ params, response }: HttpContextContract) {
     try {
       const { id } = params
@@ -91,7 +111,7 @@ export default class UsersController {
 
       response.ok({ message: 'Berhasil menghapus data user' })
     } catch (error) {
-      ResponseError.handler(error, response, 'User Co ln:93')
+      ResponseError.handler(error, response, 'User Co ln:114')
     }
   }
 }

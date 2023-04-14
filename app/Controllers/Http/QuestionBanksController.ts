@@ -33,7 +33,24 @@ export default class QuestionBanksController {
     try {
       const { id } = params
 
-      const data = await QuestionBank.query().preload('question').where('id', id).firstOrFail()
+      const data = await QuestionBank.query()
+        .select('id', 'name')
+        .preload('question', (q) =>
+          q.select(
+            'id',
+            'question_bank_id',
+            'question',
+            'a',
+            'b',
+            'c',
+            'd',
+            'e',
+            'answer_key',
+            'is_public'
+          )
+        )
+        .where('id', id)
+        .firstOrFail()
 
       response.ok({ message: 'Berhasil mengambil data detail Bank Soal', data })
     } catch (error) {

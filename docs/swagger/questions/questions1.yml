@@ -1,0 +1,32 @@
+paths:
+  /question-banks/{question_bank_id}/questions:
+    get:
+      tags:
+        - Question
+      summary: Get All Questions
+      description: User must be registered to access this endpoint.
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil Mengambil data Soal'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      example:
+                        id: c20076cc-09f7-4cc6-89ef-7ba7fb2c54b47
+                        question_bank_id: 67c8cdbb-fdcb-43ba-bf79-f78eb2819f0d
+                        question: Komputer yang terhubung ke file server dalam jaringan disebut
+                        a: Basestation
+                        b: Worksheet
+                        c: Workstation
+                        d: Workgroup
+                        e: Server
+                        key_answer: c

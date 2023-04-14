@@ -37,6 +37,9 @@ Route.group(() => {
     update: 'checkRole:trainer,participant',
     destroy: 'checkRole:trainer,participant',
   })
+  Route.put('/trainer', 'UsersController.trainerUpdate')
+    .middleware('checkRole:trainer')
+    .middleware('verifyEmail')
   Route.resource('/question-banks', 'QuestionBanksController')
     .apiOnly()
     .middleware({

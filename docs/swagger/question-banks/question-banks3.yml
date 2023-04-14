@@ -1,0 +1,66 @@
+paths:
+  /question-banks/{id}:
+    get:
+      tags:
+        - Question Banks
+      summary: Get  Question Bank detail
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID of the class to fetch details for"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil menampilkan kelas detail'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '94aa4f99-0ed7-4663-9d09-455052c896b7'
+                      name:
+                        type: string
+                        example: 'Jaringan'
+                      questions:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                              example: 'c9acc51c-d443-4b33-8f9c-5e2b49552bc7'
+                            question_bank_id:
+                              type: string
+                              example: '94aa4f99-0ed7-4663-9d09-455052c896b7'
+                            question:
+                              type: string
+                              example: 'Peer to peer merupakan jenis jaringan'
+                            a:
+                              type: string
+                              example: Jaringan PAN
+                            b:
+                              type: string
+                              example: Jaringan LAN
+                            c:
+                              type: string
+                              example: Jaringan WPAN
+                            d:
+                              type: string
+                              example: Jaringan WAN
+                            e:
+                              type: string
+                              example: Jaringan MAN
+                            answer_key:
+                              type: string
+                              example: b

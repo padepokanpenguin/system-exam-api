@@ -1,0 +1,25 @@
+paths:
+  /question-banks:
+    get:
+      tags:
+        - Question Banks
+      summary: Get All Question Banks
+      description: User must be registered to access this endpoint.
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil Mengambil data Bank Soal'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      example:
+                        id: c20076cc-09f7-4cc6-89ef-7ba7fb2c54b47
+                        name: IPA

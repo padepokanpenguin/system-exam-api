@@ -1,0 +1,36 @@
+paths:
+  /question-banks:
+    post:
+      tags:
+        - Question Banks
+      summary: Create a question bank
+      description: User must be registered and the role must be trainer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: RPL
+                  required: true
+      responses:
+         '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil membuat data bank soal'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      example:
+                        id: 82c8ac3d-ed07-4022-90b6-5d5d3cb1ecc6
+                        name: RPL

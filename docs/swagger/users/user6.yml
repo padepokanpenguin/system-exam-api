@@ -1,0 +1,48 @@
+paths:
+  /trainer:
+    put:
+      tags:
+        - User
+      summary: For updating roles and class in user
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: 'id'
+          in: 'body'
+          required: true
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                roles:
+                  type: string
+                  enum:
+                    - trainer
+                    - participant
+                classId:
+                  type: string
+                  example: 94aa4f99-0ed7-4663-9d09-455052c896b7
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil memperbarui data detail User'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      example:
+                        id: cd484052-08c1-421b-84e0-cc2d36c8af8e
+                        nomor_induk: 123456789
+                        name: John Doe
+                        email: johndoe@example.com
+                        roles: participant

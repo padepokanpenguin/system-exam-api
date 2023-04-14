@@ -1,0 +1,77 @@
+paths:
+  /questions/{id}:
+    put:
+      tags:
+        - Question
+      summary: Update Question
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID of the class to fetch details for"
+          required: true
+          type: "string"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                question:
+                  type: string
+                a:
+                  type: string
+                b:
+                  type: string
+                c:
+                  type: string
+                d:
+                  type: string
+                e:
+                  type: string
+                isPublic:
+                  type: boolean
+                answerKey:
+                  type: string
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil memperbarui soal detail'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '533174a1-7162-49c2-a13d-264b15b032ee'
+                      question_bank_id:
+                        type: string
+                        example: '94aa4f99-0ed7-4663-9d09-455052c896b7'
+                      question:
+                        type: string
+                        example: 'Peer to peer merupakan jenis jaringan'
+                      a:
+                        type: string
+                        example: Jaringan PAN
+                      b:
+                        type: string
+                        example: Jaringan LAN
+                      c:
+                        type: string
+                        example: Jaringan WPAN
+                      d:
+                        type: string
+                        example: Jaringan WAN
+                      e:
+                        type: string
+                        example: Jaringan MAN
+                      answer_key:
+                        type: string
+                        example: b

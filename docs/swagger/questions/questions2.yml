@@ -1,0 +1,70 @@
+paths:
+  /question-banks/{question_bank_id}/questions:
+    post:
+      tags:
+        - Question
+      summary: Create a question
+      description: User must be registered and the role must be trainer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                question:
+                  type: string
+                  example: What is Your Country?
+                  required: true
+                a:
+                  type: string
+                  example: Indonesia
+                  required: true
+                b:
+                  type: string
+                  example: Singapore
+                c:
+                  type: string
+                  example: Malaysia
+                d:
+                  type: string
+                  example: Thailand
+                e:
+                  type: string
+                  example: United States
+                answerKey:
+                  type: string
+                  example: a
+                isPublic:
+                  type: boolean
+                  example: true
+                questionBankId:
+                  type: string
+                  format: uuid
+                  example: c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil membuat data soal'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      example:
+                        id: 533174a1-7162-49c2-a13d-264b15b032ee
+                        question_bank_id: c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4
+                        question: What is Your Country?
+                        a: Indonesia
+                        b: Singapore
+                        c: Malaysia
+                        d: Thailand
+                        e: United States
+                        answer_key: a
+                        is_public: true

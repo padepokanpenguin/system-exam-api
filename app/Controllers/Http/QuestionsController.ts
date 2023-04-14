@@ -21,7 +21,6 @@ export default class QuestionsController {
           'is_public',
           'answer_key'
         )
-        .preload('questionBank')
         .where('questionBankId', questionBankId)
 
       shuffleArray(data)
@@ -60,7 +59,10 @@ export default class QuestionsController {
     try {
       const { id } = params
 
-      const data = await Question.query().where('id', id).firstOrFail()
+      const data = await Question.query()
+        .where('id', id)
+        .preload('questionBank', (qb) => qb.select('name'))
+        .firstOrFail()
 
       response.ok({ message: 'Berhasil mengambil detail soal', data })
     } catch (error) {
