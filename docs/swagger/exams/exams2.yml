@@ -1,0 +1,53 @@
+paths:
+  /classes/{classId}/exams:
+    post:
+      tags:
+        - Exam
+      summary: Create an exam
+      description: User must be registered to access this endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Ujian Harian Cyber Security
+                  required: true
+                startTime: 
+                  type: datetime
+                  example: 2023-04-11 08:40:00
+                  required: true
+                endTime:
+                  type: datetime
+                  example: 2023-04-11 11:40:00
+                  required: true
+                duration:
+                  type: number
+                  example: 90
+                  required: true
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil membuat data ujian'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      example:
+                        id: f094d86d-3162-4332-b153-21582e69bb67
+                        class_id: 94aa4f99-0ed7-4663-9d09-455052c896b7
+                        trainer_id: 80624501-b09b-4000-bc14-67a3cc0eaa74
+                        name: Ujian Harian Cyber Security
+                        start_time: 2023-04-11 08:40:00
+                        end_time: 2023-04-11 11:40:00
+                        duration: 90

@@ -8,10 +8,7 @@ export default class ExamsController {
     try {
       const { class_id: classId } = params
 
-      const data = await Exam.query()
-        .where('classId', classId)
-        .preload('classes')
-        .preload('trainer')
+      const data = await Exam.query().where('classId', classId)
 
       response.ok({ message: 'Berhasil mengambil data Ujian', data })
     } catch (error) {

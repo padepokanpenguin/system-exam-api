@@ -1,0 +1,75 @@
+paths:
+  /exams/{id}:
+    get:
+      tags:
+        - Exam
+      summary: Get Exam detail
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID of the class to fetch details for"
+          required: true
+          type: "string"
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil menampilkan ujian detail'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: '73c6de4c-97fc-4b0d-a9ea-8a29cd8ce242'
+                      class_id:
+                        type: string
+                        example: '94aa4f99-0ed7-4663-9d09-455052c896b7'
+                      trainer_id:
+                        type: string
+                        example: 'cb17e5cb-b1d0-4884-9ee7-16336416e399'
+                      name:
+                        type: string
+                        example: 'Ujian Harian Jaringan'
+                      start_time:
+                        type: datetime
+                        example: 2023-04-09T09:24:25.169+07:00
+                      end_time:
+                        type: datetime
+                        example: 2023-04-09T09:24:25.169+07:00
+                      duration:
+                        type: number
+                        example: 90
+                      trainer:
+                        type: object
+                        properties:
+                          id: 
+                            type: string
+                            example: cb17e5cb-b1d0-4884-9ee7-16336416e399
+                          nomor_induk:
+                            type: string
+                            example: 123456789
+                          name:
+                            type: string
+                            example: John Smith
+                          email:
+                            type: string
+                            example: john.smith@mail.com
+                      classes:
+                        type: object
+                        properties:
+                          id: 
+                            type: string
+                            example: 94aa4f99-0ed7-4663-9d09-455052c896b7
+                          name:
+                            type: string
+                            example: Rekayasa Perangkata Lunak
+                          code:
+                            type: string
+                            example: RPL
