@@ -39,12 +39,6 @@ export default class ExamRecordsController {
 
       const exam = await Exam.query().where('id', examId).firstOrFail()
 
-      if (payload.startTime < exam.startTime || payload.endTime > exam.endTime) {
-        return response.badRequest({
-          message: `Sekarang bukan jadwal ujian, ujian hanya bisa dimulai pada waktu ${exam.startTime} hingga ${exam.endTime}`,
-        })
-      }
-
       if (DateTime.now() > exam.endTime) {
         payload.submitTime = exam.endTime
       }
