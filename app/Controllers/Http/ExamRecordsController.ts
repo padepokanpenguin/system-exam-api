@@ -5,7 +5,6 @@ import Exam from 'App/Models/Exam'
 import ExamAnswer from 'App/Models/ExamAnswer'
 
 import ExamRecord from 'App/Models/ExamRecord'
-import { DateTime } from 'luxon'
 
 export default class ExamRecordsController {
   public async index({ response, params }: HttpContextContract) {
@@ -20,13 +19,12 @@ export default class ExamRecordsController {
     }
   }
 
-  public async store({ request, response, params }: HttpContextContract) {
+  public async store({ request, response, params, auth }: HttpContextContract) {
     try {
       const { exam_id: examId } = params
 
       const payload = await request.validate({
         schema: schema.create({
-          userId: schema.string([rules.trim(), rules.uuid({ version: 4 })]),
           submitTime: schema.date({ format: 'yyyy-MM-dd HH:mm:ss' }),
           startTime: schema.date({ format: 'yyyy-MM-dd HH:mm:ss' }),
           endTime: schema.date({ format: 'yyyy-MM-dd HH:mm:ss' }),
@@ -35,23 +33,35 @@ export default class ExamRecordsController {
 
       const examAnswer = await ExamAnswer.query()
         .preload('examQuestion', (eq) => eq.preload('questions'))
-        .where('userId', payload.userId)
+        .where('userId', auth.user!.id)
 
-      const exam = await Exam.query().where('id', examId).firstOrFail()
-
-      if (DateTime.now() > exam.endTime) {
-        payload.submitTime = exam.endTime
-      }
+      const exam = await Exam.query()
+        .where('id', examId)
+        .preload('examQuestion', (eq) => eq.preload('examAnswer'))
+        .firstOrFail()
 
       let n = 0
+
+      const isRagu = exam.examQuestion.map((e) => e.examAnswer.map((ea) => ea.isRagu))
 
       examAnswer.map((e) => {
         if (e.answer === e.examQuestion.questions.answerKey) {
           n += 1
         }
       })
-      const data = await ExamRecord.create({ ...payload, examId, result: n })
+      const data = await ExamRecord.create({ ...payload, examId, result: n, userId: auth.user!.id })
 
+      const waktuHabis = data.createdAt > exam.endTime
+
+      if (isRagu.map((e) => e[0]).indexOf(true) >= 0) {
+        return response.send({
+          message: 'Masih ada jawaban yang ragu, periksa kembali jawaban anda',
+        })
+      }
+
+      if (waktuHabis) {
+        data.submitTime = exam.endTime
+      }
       response.ok({
         message: 'Berhasil membuat data exam record',
         data,

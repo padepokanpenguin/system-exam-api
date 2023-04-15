@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, HasMany, belongsTo, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Exam from './Exam'
 import Question from './Question'
+import ExamAnswer from './ExamAnswer'
 
 export default class ExamQuestion extends BaseModel {
   @column({ isPrimary: true })
@@ -18,6 +19,9 @@ export default class ExamQuestion extends BaseModel {
 
   @belongsTo(() => Question)
   public questions: BelongsTo<typeof Question>
+
+  @hasMany(() => ExamAnswer)
+  public examAnswer: HasMany<typeof ExamAnswer>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

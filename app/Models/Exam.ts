@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, HasMany, belongsTo, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Class from './Class'
 import User from './User'
+import ExamQuestion from './ExamQuestion'
 
 export default class Exam extends BaseModel {
   @column({ isPrimary: true })
@@ -20,6 +21,9 @@ export default class Exam extends BaseModel {
     foreignKey: 'trainerId',
   })
   public trainer: BelongsTo<typeof User>
+
+  @hasMany(() => ExamQuestion)
+  public examQuestion: HasMany<typeof ExamQuestion>
 
   @column()
   public name: string

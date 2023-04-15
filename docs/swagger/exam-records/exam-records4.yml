@@ -18,10 +18,6 @@ paths:
             schema:
               type: object
               properties:
-                userId:
-                  type: string
-                  example: 12031110-0266-4d61-8fcb-9f4a316da5ba
-                  required: true
                 submitTime:
                   type: string
                   format: date-time

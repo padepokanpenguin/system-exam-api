@@ -117,7 +117,7 @@ Route.group(() => {
   Route.resource('exams.exam-records', 'ExamRecordsController')
     .only(['index', 'store'])
     .apiOnly()
-    .middleware({ index: 'checkRole:trainer,participant', store: 'checkRole:trainer,' })
+    .middleware({ index: 'checkRole:trainer,participant', store: 'checkRole:trainer,participant' })
     .middleware({ '*': 'verifyEmail' })
   Route.get('/exam-records/:id', 'ExamRecordsController.show').middleware([
     'checkRole:trainer,participant',
