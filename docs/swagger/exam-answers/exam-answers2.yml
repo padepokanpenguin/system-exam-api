@@ -1,0 +1,64 @@
+paths:
+  /exams/{examId}/exam-questions/{examQuestionId}/exam-answer:
+    post:
+      tags:
+        - Exam Anwer
+      summary: Create Exam Anwer
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: 'examId'
+          in: 'path'
+          description: 'ID of the exam to fetch details for'
+          required: true
+          type: 'string'
+        - name: 'examQuestionId'
+          in: 'path'
+          description: 'ID of the exam question to fetch details for'
+          required: true
+          type: 'string'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                answer:
+                  type: string
+                  example: a
+                  required: true
+                isRagu:
+                  type: boolean
+                  example: false
+                  required: true
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Berhasil membuat data jawaban ujian
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 9aa34ada-e982-49f0-9a4e-d550d2cb25c7
+                        user_id:
+                          type: string
+                          example: 29a35c48-a42d-4df5-b770-125d48a79a4a
+                        exam_question_id:
+                          type: string
+                          example: 7a02e06d-b88e-4225-90ef-94a28de7208d
+                        answer:
+                          type: string
+                          example: a
+                        is_ragu:
+                          type: boolean
+                          example: false

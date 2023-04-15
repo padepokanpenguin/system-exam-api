@@ -1,0 +1,92 @@
+paths:
+  /exam-answers/{id}:
+    get:
+      tags:
+        - Exam Anwer
+      summary: Get detail Exam Answers
+      description: User must be registered to access this endpoint.
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'ID of the exam answer to fetch details for'
+          required: true
+          type: 'string'
+      responses:
+        '200': # status code
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Berhasil mengambil data Jawaban Ujian'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: f43bc8f2-01a2-4934-a1e8-61cb0378de74
+                        user_id:
+                          type: string
+                          example: 29a35c48-a42d-4df5-b770-125d48a79a4a
+                        exam_question_id:
+                          type: string
+                          example: 1f942acd-2b58-431b-9412-8290dd7c3f09
+                        anwer:
+                          type: string
+                          example: a
+                        is_ragu:
+                          type: boolean
+                          example: false
+                        exam_question:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 1f942acd-2b58-431b-9412-8290dd7c3f09
+                            exam_id:
+                              type: string
+                              example: 73c6de4c-97fc-4b0d-a9ea-8a29cd8ce242
+                            question_id:
+                              type: string
+                              example: fc9c2776-9842-43ff-bc85-89b83a150414
+                            questions:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                  example: fc9c2776-9842-43ff-bc85-89b83a150414
+                                user_id:
+                                  type: string
+                                  example: cb17e5cb-b1d0-4884-9ee7-16336416e399
+                                question_bank_id:
+                                  type: string
+                                  example: c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4
+                                question:
+                                  type: string
+                                  example: Kepanjangan dari ISO adalah?
+                                a:
+                                  type: string
+                                  example: International Standards Organisation
+                                b:
+                                  type: string
+                                  example: Interconnection System Operating
+                                c:
+                                  type: string
+                                  example: Interconection System Open
+                                d:
+                                  type: string
+                                  example: In System On
+                                e:
+                                  type: string
+                                  example: Iki Seng Ojo
+                                anwer_key:
+                                  type: string
+                                  example: a
+                                is_public:
+                                  type: boolean
+                                  example: true
