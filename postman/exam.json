@@ -1,0 +1,1463 @@
+{
+	"info": {
+		"_postman_id": "5d026943-ba3f-4311-b358-23248f1d7301",
+		"name": "system_exam_aria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20220881"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Aria Nur Jamal\",\n  \"email\": \"arianurjamal@givmail.com\",\n  \"password\": \"secret\",\n  \"passwordConfirmaion\": \"secret\",\n  \"roles\": \"trainer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"arianurjamal@givmail.com\",\n    \"password\": \"secret\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh_token\": \"58e5df0627d720313962f24ad02c04c94fbb6f213779b3f7f8fb467854b6de1f\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Kelas",
+			"item": [
+				{
+					"name": "get all classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/kelas",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"kelas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ilmu Pengetahun Sosial\",\n    \"code\": \"IPS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/kelas",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"kelas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get detail's class",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/kelas/{{CLASS_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"kelas",
+								"{{CLASS_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update detail's class",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"IPZ\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/kelas/{{CLASS_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"kelas",
+								"{{CLASS_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete class",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"IPZ\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/kelas/{{CLASS_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"kelas",
+								"{{CLASS_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "get all user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fulan\",\n    \"email\": \"fulan@getnada.com\",\n    \"password\": \"rahasia\",\n    \"roles\": \"participant\",\n    \"classId\": \"94aa4f99-0ed7-4663-9d09-455052c896b7\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get details' user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nomorInduk\": \"987654321\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"013274fb-9f34-49fc-b449-77b23b660134\",\n    \"classId\": \"583fe7f5-d039-4094-84ba-69239611b281\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/trainer",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"trainer"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Question Banks",
+			"item": [
+				{
+					"name": "Get All Question Banks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/question-banks",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"question-banks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Question Bank",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"RPL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/question-banks",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"question-banks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Detail Question Bank",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"IPA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/question-banks/{{QUESTION_BANK_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"question-banks",
+								"{{QUESTION_BANK_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Question Bank",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"IPS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/question-banks/{{QUESTION_BANK_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"question-banks",
+								"{{QUESTION_BANK_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Question Bank",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"IPS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/question-banks/{{QUESTION_BANK_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"question-banks",
+								"{{QUESTION_BANK_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Questions",
+			"item": [
+				{
+					"name": "Get All Questions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/question-banks/{{QUESTION_BANK_ID}}/questions",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"question-banks",
+								"{{QUESTION_BANK_ID}}",
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create Question",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"Kamu Di Mana\",\n    \"a\": \"di rumah\",\n    \"b\": \"di sekolah\",\n    \"c\": \"di kosan\",\n    \"d\": \"di jalan\",\n    \"e\": \"di mana mana\",\n    \"answerKey\": \"a\",\n    \"isPublic\": true,\n    \"questionBankId\": \"c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/question-banks/{{QUESTION_BANK_ID}}/questions",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"question-banks",
+								"{{QUESTION_BANK_ID}}",
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Detail Question",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"Kamu Di Mana\",\n    \"a\": \"di rumah\",\n    \"b\": \"di sekolah\",\n    \"c\": \"di kosan\",\n    \"d\": \"di jalan\",\n    \"e\": \"di mana mana\",\n    \"answerKey\": \"a\",\n    \"isPublic\": true,\n    \"questionBankId\": \"c20076cc-09f7-4cc6-89ef-7ba7fb2c54b4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/questions/{{QUESTION_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"questions",
+								"{{QUESTION_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Question",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"e\": \"di hatimu\"\n \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/questions/{{QUESTION_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"questions",
+								"{{QUESTION_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Question",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"e\": \"di hatimu\"\n \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/questions/{{QUESTION_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"questions",
+								"{{QUESTION_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Exam",
+			"item": [
+				{
+					"name": "Get all exams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/classes/{{CLASS_ID}}/exams",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"classes",
+								"{{CLASS_ID}}",
+								"exams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create exam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"ujian harian Jaringan\",\n    \"startTime\": \"2023-04-11 08:40:00\",\n    \"endTime\": \"2023-04-11 11:40:00\",\n    \"duration\": 120\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/classes/{{CLASS_ID}}/exams",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"classes",
+								"{{CLASS_ID}}",
+								"exams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get detali exam",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"ujian harian Jaringan\",\n    \"startTime\": \"2023-04-11 08:40:00\",\n    \"endTime\": \"2023-04-11 11:40:00\",\n    \"duration\": 120\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exams/{{EXAM_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exams",
+								"{{EXAM_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update exam",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"ujian harian Jaringan\",\n    \"startTime\": \"2023-04-16 10:00:00\",\n    \"endTime\": \"2023-04-16 12:00:00\",\n    \"duration\": 120\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exams/{{EXAM_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exams",
+								"{{EXAM_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete exam",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"ujian harian Jaringan\",\n    \"startTime\": \"2023-04-11 08:40:00\",\n    \"endTime\": \"2023-04-11 11:40:00\",\n    \"duration\": 180\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exams/{{EXAM_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exams",
+								"{{EXAM_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Exam Question",
+			"item": [
+				{
+					"name": "Get All Exam Question",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/exams/{{EXAM_ID}}/exam-question",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exams",
+								"{{EXAM_ID}}",
+								"exam-question"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create Exam Question",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"questionId\": \"2399a5e4-4107-4bc5-a6a2-956b56c7257d\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exams/{{EXAM_ID}}/exam-question",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exams",
+								"{{EXAM_ID}}",
+								"exam-question"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get detail Exam Question",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/exam-question/{{EXAM_QUESTION_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exam-question",
+								"{{EXAM_QUESTION_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Exam Question",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"questionId\": \"43c0714e-6e2a-4b5b-8025-957b8485cf36\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exam-question/{{EXAM_QUESTION_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exam-question",
+								"{{EXAM_QUESTION_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Exam Question",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"questionId\": \"a2c466f0-c981-453f-a2ae-e7009173b51e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exam-question/{{EXAM_QUESTION_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exam-question",
+								"{{EXAM_QUESTION_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Exam Answer",
+			"item": [
+				{
+					"name": "Get All Exam Answer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/exams/{{EXAM_ID}}/exam-questions/{{EXAM_QUESTION_ID}}/exam-answer",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exams",
+								"{{EXAM_ID}}",
+								"exam-questions",
+								"{{EXAM_QUESTION_ID}}",
+								"exam-answer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Exam Answer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"answer\": \"e\",\n    \"isRagu\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exams/{{EXAM_ID}}/exam-questions/{{EXAM_QUESTION_ID}}/exam-answer",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exams",
+								"{{EXAM_ID}}",
+								"exam-questions",
+								"{{EXAM_QUESTION_ID}}",
+								"exam-answer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get detail Exam Answer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"examQuestionId\": \"a7369aa4-0cd4-49a6-948b-88412af6c33a\",\n    \"answer\": \"b\",\n    \"isRagu\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exam-answers/{{EXAM_ANSWER_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exam-answers",
+								"{{EXAM_ANSWER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Exam Answer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"answer\": \"a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exam-answers/{{EXAM_ANSWER_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exam-answers",
+								"{{EXAM_ANSWER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Exam Answer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"answer\": \"b\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exam-answers/{{EXAM_ANSWER_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exam-answers",
+								"{{EXAM_ANSWER_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Exam Record",
+			"item": [
+				{
+					"name": "Get All Exam Records",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/exams/{{EXAM_ID}}/exam-records",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exams",
+								"{{EXAM_ID}}",
+								"exam-records"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Exam Record",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"submitTime\": \"2023-04-16 10:51:00\",\n    \"startTime\": \"2023-04-16 10:00:00\",\n    \"endTime\": \"2023-04-16 12:00:00\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exams/{{EXAM_ID}}/exam-records",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exams",
+								"{{EXAM_ID}}",
+								"exam-records"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Detaill Exam Records",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/exam-records/{{EXAM_RECORD_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exam-records",
+								"{{EXAM_RECORD_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Exam Record",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"submitTime\": \"2023-04-11 10:50:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exam-records/{{EXAM_RECORD_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exam-records",
+								"{{EXAM_RECORD_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Exam Record Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"submitTime\": \"2023-04-11 10:50:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exam-records/{{EXAM_RECORD_ID}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exam-records",
+								"{{EXAM_RECORD_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/harus-login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"harus-login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hello World",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}",
+					"host": [
+						"{{URL}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

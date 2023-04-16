@@ -114,21 +114,21 @@ Route.group(() => {
     'checkRole:participant',
     'verifyEmail',
   ])
-  Route.resource('exams.exam-records', 'ExamRecordsController')
-    .only(['index', 'store'])
+  Route.shallowResource('exams.exam-records', 'ExamRecordsController')
+    // .only(['index', 'store'])
     .apiOnly()
     .middleware({ index: 'checkRole:trainer,participant', store: 'checkRole:trainer,participant' })
     .middleware({ '*': 'verifyEmail' })
-  Route.get('/exam-records/:id', 'ExamRecordsController.show').middleware([
-    'checkRole:trainer,participant',
-    'verifyEmail',
-  ])
-  Route.put('/exam-records/:id', 'ExamRecordsController.update').middleware([
-    'checkRole:trainer',
-    'verifyEmail',
-  ])
-  Route.delete('/exam-records/:id', 'ExamRecordsController.destroy').middleware([
-    'checkRole:trainer',
-    'verifyEmail',
-  ])
+  // Route.get('/exam-records/:id', 'ExamRecordsController.show').middleware([
+  //   'checkRole:trainer,participant',
+  //   'verifyEmail',
+  // ])
+  // Route.put('/exam-records/:id', 'ExamRecordsController.update').middleware([
+  //   'checkRole:trainer',
+  //   'verifyEmail',
+  // ])
+  // Route.delete('/exam-records/:id', 'ExamRecordsController.destroy').middleware([
+  //   'checkRole:trainer',
+  //   'verifyEmail',
+  // ])
 }).middleware(['auth:jwt'])
